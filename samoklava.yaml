@@ -251,6 +251,25 @@ outlines:
         # TODO use plated through hole footprints as mounting holes
         name: mounting_holes
         operation: subtract
+cases:
+  top:
+    plate:
+      type: outline
+      name: plate
+      extrude: 1.6  # Standard PCB thickness
+  bottom:
+    shell:
+      type: outline
+      name: bottom_outline
+      extrude: 3  # Bottom plate thickness
+  full_case:
+    top:
+      type: case
+      name: top
+    bottom:
+      type: case
+      name: bottom
+      shift: [0, 0, -3]  # Offset by bottom thickness
 pcbs:
   top_plate:
     include_keys: false
@@ -441,4 +460,3 @@ pcbs:
           layer: B.SilkS
           text: "samoklava v0.1\\nby soundmonster"
           justify: right mirror
-
